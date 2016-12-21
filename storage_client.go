@@ -635,11 +635,13 @@ func (this *StorageClient) storageDoModifyBuffer(sServ *StorageServer, fileSize 
     logger.Debugf("get the storage connection by self, storage addr %s:%d\n", sServ.ipAddr, sServ.port)
     conn, err = this.GetStorageConn(fmt.Sprintf("%s:%d", sServ.ipAddr, sServ.port))
     //conn, err = this.pool.Get()
-    defer conn.Close()
     if err != nil {
         logger.Errorf("GetStorageConn err:%s, ip:%s", err.Error(), sServ.ipAddr)
         return err
     }
+
+    defer conn.Close()
+
     th := &trackerHeader{}
     th.cmd = STORAGE_PROTO_CMD_MODIFY_FILE
     appenderFileNameLen := len(remoteFileName)
