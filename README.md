@@ -1,4 +1,8 @@
 # Fdfs_client go
+线上在用的东西,发现原来第三方的库有个bug,其fixed后发现与
+现在在用的库相比更新较多，怕有坑，不敢全pull,只好弃掉原来
+的第三方库了
+
 The Golang interface to the Fastdfs Ver 5.08.
 ## Notice:Only realized the upload,download, delete functions
 作者1年前就没有commit了，尝试修复一下bug并且新增一点功能
